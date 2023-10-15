@@ -1,7 +1,8 @@
 class TaskList {
   tableBody = undefined
   tasks = []
-  filteredTasks = []
+  filteredTasks = undefined
+  searchedText = undefined
 
   constructor() {
     // Get tasks from local storage
@@ -26,7 +27,7 @@ class TaskList {
       this.tableBody.removeChild(this.tableBody.rows[1])
     }
 
-    const isSearched = this.filteredTasks.length > 0
+    const isSearched = !!this.filteredTasks
 
     // Generate content inside table
     for (const task of isSearched ? this.filteredTasks : this.tasks) {
@@ -37,6 +38,23 @@ class TaskList {
       const contentCell = newRow.insertCell()
       contentCell.classList.add('content-cell')
       contentCell.append(document.createTextNode(task.content))
+
+      // Highlight if text is searched
+      if (isSearched) {
+        const innerHTML = contentCell.innerHTML
+        const splitIndex = innerHTML.indexOf(this.searchedText)
+        if (splitIndex >= 0) {
+          contentCell.innerHTML =
+            innerHTML.substring(0, splitIndex) +
+            "<span class='highlight'>" +
+            innerHTML.substring(
+              splitIndex,
+              splitIndex + this.searchedText.length
+            ) +
+            '</span>' +
+            innerHTML.substring(splitIndex + this.searchedText.length)
+        }
+      }
 
       // Insert cell with date to row
       const dateCell = newRow.insertCell()
@@ -102,13 +120,42 @@ class TaskList {
   }
 
   search(searchText) {
-    this.filteredTasks = tasks.filter(task => task.content.includes(searchText))
+    if (searchText) {
+      this.filteredTasks = this.tasks.filter(task =>
+        task.content.includes(searchText)
+      )
+      this.searchedText = searchText
+    } else {
+      this.filteredTasks = undefined
+      this.searchedText = undefined
+    }
+
+    this.draw()
   }
 
   getTaskById(id) {
     return this.tasks.find(task => task.id === id)
   }
 }
+
+// #region VALIDATION
+const validateDate = date => {
+  // Check if selected date is in future
+  if (Date.now() > new Date(date).getTime()) {
+    throw new Error('Date must be in future')
+  }
+}
+
+const validateContent = content => {
+  // Check if content has proper length
+  if (content.length < 3) {
+    throw new Error('Content is too short')
+  }
+  if (content.length > 255) {
+    throw new Error('Content is too long')
+  }
+}
+// #endregion
 
 // #region HANDLERS
 const handleFormSubmit = event => {
@@ -119,16 +166,11 @@ const handleFormSubmit = event => {
   const date = document.getElementById('add-task-form-date').value
 
   // Validate inputs
-  // Check if selected date is in future
-  if (date && Date.now() > new Date(date).getTime()) {
-    return alert('Date must be in future')
-  }
-  // Check if content has proper length
-  if (content.length < 3) {
-    return alert('Content is too short')
-  }
-  if (content.length > 255) {
-    return alert('Content is too long')
+  try {
+    validateDate(date)
+    validateContent(content)
+  } catch (error) {
+    return alert(error.message)
   }
 
   // Reset inputs
@@ -139,7 +181,10 @@ const handleFormSubmit = event => {
 }
 
 const handleSearch = event => {
-  taskList.setSearchText(event.target.value)
+  if (event.target.value.length > 1) {
+    return taskList.search(event.target.value)
+  }
+  return taskList.search(undefined)
 }
 
 const handleDelete = event => {
@@ -170,21 +215,23 @@ const handleEditSave = event => {
 
     // Validate and edit task
     if (editInputReference.type === 'text') {
-      if (editInputReference.value.length < 3) {
-        return alert('Content is too short')
-      }
-      if (editInputReference.value.length > 255) {
-        return alert('Content is too long')
+      // Validate input
+      try {
+        validateContent(editInputReference.value)
+      } catch (error) {
+        return alert(error.message)
       }
       taskList.editTask(taskId, { content: editInputReference.value })
     } else {
-      if (Date.now() > new Date(editInputReference.value).getTime()) {
-        return alert('Date must be in future')
+      // Validate input
+      try {
+        validateDate(editInputReference.value)
+      } catch (error) {
+        return alert(error.message)
       }
 
       taskList.editTask(taskId, { date: editInputReference.value })
     }
-
   }
 }
 
