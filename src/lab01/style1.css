@@ -83,13 +83,20 @@ nav ul li a:hover {
 
 .content h2 {
   text-align: left;
-  font-size: 3rem;
+  font-size: 4rem;
+  padding-bottom: 0.5rem;
+}
+
+.content h3 {
+  text-align: left;
+  font-size: 2rem;
   padding-bottom: 0.5rem;
 }
 
 .content p {
   text-align: left;
   font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 hr {
@@ -97,7 +104,7 @@ hr {
   border: none;
   border-radius: 6px;
   background: linear-gradient(45deg, #ffb004, #ff2830);
-  margin: 2vh 0;
+  margin: 1rem 0;
 }
 
 /* Style for the footer */
@@ -113,7 +120,7 @@ footer {
 /* Add media query for responsiveness */
 @media (max-width: 600px) {
   .content {
-    margin: 10vh 0;
+    margin: 10vh 1rem;
   }
 
   .content h1 {
@@ -122,6 +129,10 @@ footer {
 
   .content h2 {
     font-size: 2.5rem;
+  }
+
+  .content h3 {
+    font-size: 1.5rem;
   }
 
   .content p {
