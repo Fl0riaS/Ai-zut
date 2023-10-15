@@ -4,18 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <input type="text" />
-    <ul>
-      <li>
-        <p>Task</p>
-      </li>
-    </ul>
+    <input type="text" id="search-text-field" placeholder="Search..." />
+    <table>
+      <tr>
+        <th>TODO</th>
+        <th>Date</th>
+        <th>Delete</th>
+      </tr>
+      <tr>
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td><button>X</button></td>
+      </tr>
+      <tr>
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td><button>X</button></td>
+      </tr>
+    </table>
     <form action="" id="add-task-form">
-      <input type="text" min="3" max="255" id="add-task-form-content" />
-      <input type="date" id="add-task-form-date"/>
-      <button>Save</button>
+      <div>
+        <input type="text" min="3" max="255" id="add-task-form-content" placeholder="What do you need to do?"/>
+        <input type="date" id="add-task-form-date"/>
+      </div>
+      <button>Add</button>
     </form>
   </body>
   <script src="script.js"></script>
