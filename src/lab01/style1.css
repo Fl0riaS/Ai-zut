@@ -1,0 +1,131 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Change font color */
+* {
+  color: #ffffffde;
+}
+
+/* Style the header */
+header {
+  background-color: #333;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Style the navigation menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+/* Style the links */
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  border-bottom: 2px solid #fff;
+}
+
+/* Style for the parallax container */
+.parallax {
+  background-image: url("image1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Style for the content inside the parallax container */
+.content {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  margin: 10vh 10vw;
+}
+
+.content h1 {
+  font-size: 7rem;
+  margin-bottom: 2rem;
+  background-color: #f3ec78;
+  background-image: linear-gradient(45deg, #ffb004, #ff2830);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.content h2 {
+  text-align: left;
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+}
+
+.content p {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+hr {
+  height: 3px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(45deg, #ffb004, #ff2830);
+  margin: 2vh 0;
+}
+
+/* Style for the footer */
+footer {
+  background-color: #333;
+  padding: 1rem 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Add media query for responsiveness */
+@media (max-width: 600px) {
+  .content {
+    margin: 10vh 0;
+  }
+
+  .content h1 {
+    font-size: 4rem;
+  }
+
+  .content h2 {
+    font-size: 2.5rem;
+  }
+
+  .content p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+}
