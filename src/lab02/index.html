@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jakub Znyk lab02</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <input type="text" id="search-text-field" placeholder="Search..." />
+    <table id="todo-table">
+      <tr>
+        <th>Done</th>
+        <th>TODO</th>
+        <th>Date</th>
+        <th>Delete</th>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td><button>X</button></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td><button>X</button></td>
+      </tr>
+    </table>
+    <form action="" id="add-task-form">
+      <div>
+        <input type="text" min="3" max="255" id="add-task-form-content" placeholder="What do you need to do?"/>
+        <input type="date" id="add-task-form-date"/>
+      </div>
+      <button>Add</button>
+    </form>
+  </body>
+  <script src="script.js"></script>
+</html>
