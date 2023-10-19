@@ -34,6 +34,12 @@ class TaskList {
       // Insert new row to table
       const newRow = this.tableBody.insertRow()
 
+      // Insert cell with checkbox to row
+      const checkboxCell = newRow.insertCell()
+      const checkboxInputReference = document.createElement('input')
+      checkboxInputReference.type = 'checkbox'
+      checkboxCell.append(checkboxInputReference)
+
       // Insert cell with content to row
       const contentCell = newRow.insertCell()
       contentCell.classList.add('content-cell')
@@ -41,19 +47,10 @@ class TaskList {
 
       // Highlight if text is searched
       if (isSearched) {
-        const innerHTML = contentCell.innerHTML
-        const splitIndex = innerHTML.indexOf(this.searchedText)
-        if (splitIndex >= 0) {
-          contentCell.innerHTML =
-            innerHTML.substring(0, splitIndex) +
-            "<span class='highlight'>" +
-            innerHTML.substring(
-              splitIndex,
-              splitIndex + this.searchedText.length
-            ) +
-            '</span>' +
-            innerHTML.substring(splitIndex + this.searchedText.length)
-        }
+        contentCell.innerHTML = contentCell.innerHTML.replaceAll(
+          this.searchedText,
+          `<mark class='highlight'>${this.searchedText}</mark>`
+        )
       }
 
       // Insert cell with date to row

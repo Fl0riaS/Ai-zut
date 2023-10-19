@@ -28,15 +28,15 @@ th {
   height: 3rem;
   background-color: rgb(98, 98, 219);
   font-size: 2rem;
-  width: 30%;
+  width: 44%;
 }
 
 th:last-child {
-  width: 3%;
+  width: 4%;
 }
 
 th:first-child {
-  width: 67%;
+  width: 2%;
 }
 
 td button {
