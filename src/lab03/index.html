@@ -14,13 +14,115 @@
   </head>
   <body>
     <div id="map"></div>
-    <button onclick="markLocation()">Mark my location</button>
-    <button onclick="startPuzzle()">Start puzzle</button>
+    <div id="actions-wrapper">
+      <button onclick="markLocation()">Mark my location</button>
+      <button id="start-puzzle-button">Start puzzle</button>
+    </div>
+    <div id="puzzle-box"></div>
+    <div id="puzzle-board">
+      <div
+        id="puzzle-element-0"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-1"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-2"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-3"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-4"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-5"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-6"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-7"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-8"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-9"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-10"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-11"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-12"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-13"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-14"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div
+        id="puzzle-element-15"
+        class="puzzle-element"
+        ondrop="handleDrop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+    </div>
   </body>
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""
   ></script>
+  <script src="https://unpkg.com/leaflet-image@latest/leaflet-image.js"></script>
   <script src="script.js"></script>
 </html>

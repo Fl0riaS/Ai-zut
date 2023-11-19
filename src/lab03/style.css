@@ -1,4 +1,50 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 #map {
-  height: 600px;
-  width: 600px;
+  height: 480px;
+  width: 480px;
+}
+
+#puzzle-box {
+  border: 1px solid black;
+  flex-grow: 1;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+#actions-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#actions-wrapper button {
+  min-width: 10vw;
+}
+
+#puzzle-board {
+  display: flex;
+  border: 1px solid black;
+  height: 488px;
+  width: 488px;
+  flex-wrap: wrap;
+}
+
+.puzzle-element {
+  height: 120px;
+  width: 120px;
+  border: 1px solid black;
 }
